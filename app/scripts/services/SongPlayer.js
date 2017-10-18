@@ -38,6 +38,7 @@
     * @param {Object} song
     */
     var playSong = function(song) {
+      // console.log(currentBuzzObject);
       currentBuzzObject.play();
       song.playing = true;
     };
@@ -78,8 +79,12 @@
         setSong(song);
         playSong(song);
       } else if (SongPlayer.currentSong === song) {
-        if (currentBuzzObject.isPaused()) {
+        if (currentBuzzObject && currentBuzzObject.isPaused()) {
           playSong(song);
+        } else {
+            song = currentAlbum.songs[0];
+            setSong(song);
+            playSong(song);
         }
       }
     };
