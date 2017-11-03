@@ -23,6 +23,7 @@
         var seekBar = $(element);
 
         attributes.$observe('value', function(newValue) {
+          console.log(newValue)
           scope.value = newValue;
         });
 
